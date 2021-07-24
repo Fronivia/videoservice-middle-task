@@ -1,0 +1,17 @@
+.tab{
+  background-color: transparent;
+  border: none;
+  margin-right: 24px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: right;
+
+  color: var(--dark-grey-100);
+}
+
+.active-tab{
+  color: var(--red-100);
+}

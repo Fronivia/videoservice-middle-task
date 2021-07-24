@@ -1,0 +1,12 @@
+.user_interface-container{
+  width: 182px;
+  height: 38px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  & button{
+    width: 113px;
+    height: 38px;
+  }
+}

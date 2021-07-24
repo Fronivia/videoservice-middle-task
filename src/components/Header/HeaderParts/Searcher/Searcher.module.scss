@@ -1,0 +1,17 @@
+.searcher-container{
+
+  display: flex;
+  align-items: center;
+
+  & input{
+    width: 320px;
+    height: 22.5px;
+  }
+
+  & button{
+    width: 50px;
+    height: 19px;
+    margin-left: 32px;
+  }
+
+}

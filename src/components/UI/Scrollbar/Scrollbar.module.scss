@@ -1,0 +1,34 @@
+.viewport{
+  position: relative;
+}
+
+.content{
+  position: relative;
+  overflow: hidden;
+}
+
+.children-wrapper{
+  position: relative;
+}
+
+.scroller{
+  position: absolute;
+  top: 0;
+  right: -18px;
+
+  width: 8px;
+  height: 100%;
+
+  padding: 0 2px;
+  background-color: var(--white-grey-100);
+  border-radius: 2px;
+}
+
+.thumb{
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100px;
+  background: #BDBDBD;
+  border-radius: 2px;
+}
