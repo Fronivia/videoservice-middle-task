@@ -1,24 +1,26 @@
-import React from "react"
+import React, { useRef } from "react"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import classes from './App.module.scss';
 import Header from "./components/Header/Header";
-import Tabs from "./components/Tabs/Tabs";
-import Films from "./components/Films/Films";
 import Footer from "./components/Footer/Footer";
-import TvChannels from "./components/TvChannels/TvChannels";
+import MainPage from "./components/MainPage/MainPage";
+import FilmSection from "./components/FilmSection/FilmSection";
 
 function App() {
-    const arr = [
-        {tabName:"Фильмы", activeComponent: <Films/>},
-        {tabName:"Телеканалы", activeComponent: <TvChannels/>}
-    ]
+
     return (
-        <div className={ classes.App }>
-            <Header />
-            <Tabs params={arr}/>
-            {/*<Films/>*/}
-            {/*<TvChannels/>*/}
-            <Footer/>
-        </div>
+        <BrowserRouter>
+            <div className={ classes.App }>
+                <Header />
+                <Switch>
+                    <Route exact path="/" component={MainPage}/>
+                    <Route path="/batman" component={FilmSection}/>
+                </Switch>
+
+                <Footer/>
+            </div>
+        </BrowserRouter>
+
     );
 }
 

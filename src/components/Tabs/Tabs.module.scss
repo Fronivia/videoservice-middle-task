@@ -1,17 +1,32 @@
 .tab{
   background-color: transparent;
   border: none;
-  margin-right: 24px;
-
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
   line-height: 33px;
-  text-align: right;
 
   color: var(--dark-grey-100);
+
+  & + & {
+    margin-left: 24px;
+  }
 }
 
 .active-tab{
   color: var(--red-100);
+}
+
+.tab-container{
+  position: relative;
+  margin-bottom: 32px;
+  align-self: center;
+}
+
+.active_line{
+  position: absolute;
+  background-color: var(--red-100);
+  bottom: -9px;
+  height: 2px;
+  transition: .5s;
 }

@@ -3,6 +3,7 @@
   height: 208px;
 
   position: relative;
+  border-radius: 6px;
 
   text-decoration: none;
 
@@ -21,6 +22,8 @@
     flex-direction: column;
     align-items: center;
 
+    border-radius: 6px;
+
     & img{
       width: 48px;
       height: 48px;
@@ -38,7 +41,7 @@
   }
 
   &:hover > .genres_card-background{
-    opacity: 0.8;
+    opacity: 1;
   }
 }
 
@@ -50,6 +53,8 @@
   top: 0;
   z-index: 1;
 
+  border-radius: 6px;
+  opacity: 0.8;
   transition: 0.5s;
 }
 

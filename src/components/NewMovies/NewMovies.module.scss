@@ -1,4 +1,6 @@
 .films-section{
+  margin-top: 9px;
+
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -6,6 +8,14 @@
   text-align: left;
 
   color: var(--dark-grey-100);
+
+  display: flex;
+  text-align: center;
+
+  & img{
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .movies-list{

@@ -17,7 +17,7 @@ const NewMovies = () => {
 
     return (
         <>
-            <h2 className={ classes["films-section"] }>Новинки</h2>
+            <h2 className={ classes["films-section"] }><img src="/assets/Films/fire.png" alt="fire_icon"/>Новинки</h2>
             <ul className={ classes["movies-list"] }>
                 {movieCardHandler()}
             </ul>

@@ -3,6 +3,7 @@ import classes from './Header.module.scss'
 import Logotype from "./HeaderParts/Logotype/Logotype";
 import Searcher from "./HeaderParts/Searcher/Searcher";
 import UserInterface from "./HeaderParts/UserInterface/UserInterface";
+import WindowProvider from "../../store/windowContext/windowContext";
 
 const Header = () => {
 
@@ -10,7 +11,9 @@ const Header = () => {
             <header className={ classes.header }>
                 <Logotype/>
                 <Searcher/>
-                <UserInterface/>
+                <WindowProvider>
+                    <UserInterface/>
+                </WindowProvider>
             </header>
 
     )

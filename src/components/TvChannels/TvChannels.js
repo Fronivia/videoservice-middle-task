@@ -26,13 +26,13 @@ const TvChannels = () => {
 
     return (
 
-            <main className={ classes['channels-container'] } >
+            <>
                 <Scrollbar height={"696px"}>
                     <ul className={ classes["channels-list"] } ref={ test }>
                         {channelCardHandler()}
                     </ul>
                 </Scrollbar>
-            </main>
+            </>
     )
 }
 
