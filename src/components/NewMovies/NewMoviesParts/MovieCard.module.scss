@@ -1,12 +1,12 @@
 .movie_card-container{
   width: 280px;
-
+  position: relative;
   & + &{
     margin-left: 20px;
   }
 
   & a{
-    position: relative;
+
     text-decoration: none;
   }
 }

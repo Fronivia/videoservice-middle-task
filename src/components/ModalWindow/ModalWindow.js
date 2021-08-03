@@ -35,14 +35,7 @@ const ModalWindow = () => {
     }
 
     const setUserData = (name, checked, login) => {
-        if (checked){
-            localStorage.setItem("name",name)
-            localStorage.setItem("login", login)
-        } else {
-            sessionStorage.setItem("name", name)
-            sessionStorage.setItem("login", login)
-        }
-        logIn();
+        logIn(checked,name,login);
         removeModalWindow();
     }
 

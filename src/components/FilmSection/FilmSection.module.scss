@@ -1,0 +1,20 @@
+.Film_section-container{
+  width: 1180px;
+  margin: auto;
+  position: relative;
+}
+
+.loader-container{
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  align-items: center;
+}
+
+.back_arrow{
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 10px;
+  height: 20px;
+}

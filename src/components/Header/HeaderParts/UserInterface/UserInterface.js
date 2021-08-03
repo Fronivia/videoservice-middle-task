@@ -6,7 +6,7 @@ import classes from './UserInterface.module.scss';
 import Button from "../../../UI/Button/Button";
 import ModalWindow from "../../../ModalWindow/ModalWindow";
 import { WindowContext } from "../../../../store/windowContext/windowContext";
-import clsx from "clsx";
+import Warning from "../../../UI/Warning/Warning";
 
 const UserInterface = () => {
     const { modal, addModalWindow, logged, logOut } = useContext(WindowContext);
@@ -26,10 +26,10 @@ const UserInterface = () => {
         }
 
         if (sessionStorage.getItem("login")) {
-            const response = await axios.patch(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/${sessionStorage.getItem("login")}.json`, { name:value });
+            await axios.patch(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/${sessionStorage.getItem("login")}.json`, { name:value });
             sessionStorage.setItem("name", value);
         } else {
-            const response = await axios.patch(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/${localStorage.getItem("login")}.json`, { name:value });
+            await axios.patch(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/${localStorage.getItem("login")}.json`, { name:value });
             localStorage.setItem("name", value);
         }
 
@@ -51,14 +51,7 @@ const UserInterface = () => {
                         ? <input type={"text"} onBlur={ blurHandler } autoFocus defaultValue={ localStorage.name ?? sessionStorage.name }/>
                         : <p className={ classes.username } onClick={ clickHandler }>{localStorage.name ?? sessionStorage.name}</p>}
                     <Button onClick={ logOut } transparent={ true }>Выйти</Button>
-                    <Transition
-                        in={alert}
-                        timeout={1500}
-                        mountOnEnter
-                        unmountOnExit
-                    >
-                        { state => <div className={clsx( classes.alert, classes[state]) }>Пожалуйста, введите корректное имя пользователя. Оно должно содержать от 2 до 26 символов</div> }
-                    </Transition>
+                    <Warning toggle={alert}>Пожалуйста, введите корректное имя пользователя. Оно должно содержать от 2 до 26 символов</Warning>
                 </div>
             ) : (
                 <div className={ classes["user_interface-container"] }>

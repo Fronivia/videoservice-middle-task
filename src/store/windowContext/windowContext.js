@@ -1,23 +1,32 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
+import {reducer} from "../reducers/modalReducer";
 export const WindowContext = createContext()
 
-const WindowProvider = ({children}) => {
+const initialState = {
+    logged: localStorage.getItem("login") ?? sessionStorage.getItem("login") ?? false,
+    modal:false
+}
 
-    const [modalWindow, setModalWindow] = useState({
-        logged: localStorage.getItem("login") ?? sessionStorage.getItem("login") ?? false,
-        modal:false
-    })
+const WindowProvider = ({children}) => {
+    const [modalWindow, dispatch] = useReducer(reducer, initialState)
 
     const removeModalWindow = () => {
-        setModalWindow((prev) => ({...prev, modal : false}))
+        dispatch({type:'removeModalWindow'})
     }
 
     const addModalWindow = () => {
-        setModalWindow((prev) => ({...prev, modal : true}))
+        dispatch({type:'addModalWindow'})
     }
 
-    const logIn = () => {
-        setModalWindow((prev) => ({...prev, logged : true}))
+    const logIn = (checked, name, login) => {
+        if (checked){
+            localStorage.setItem("name",name)
+            localStorage.setItem("login", login)
+        } else {
+            sessionStorage.setItem("name", name)
+            sessionStorage.setItem("login", login)
+        }
+        dispatch({type:'logIn', payload:login })
     }
 
     const logOut = () => {
@@ -25,7 +34,7 @@ const WindowProvider = ({children}) => {
         localStorage.removeItem("name");
         sessionStorage.removeItem("login");
         localStorage.removeItem("login");
-        setModalWindow((prev) => ({...prev, logged : false}))
+        dispatch({type:'logOut'})
     }
 
 

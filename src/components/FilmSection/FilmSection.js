@@ -1,12 +1,54 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import { Link } from "react-router-dom";
+import axios from "axios";
 import classes from './FilmSection.module.scss'
+import FilmDescribe from "./FilmSectionParts/FilmDescribe/FilmDescribe";
+import FilmComments from "./FilmSectionParts/FilmComments/FilmComments";
+import Loader from "../UI/Loader/Loader";
 
-const FilmSection = () => {
+const FilmSection = (props) => {
+    const [data,setData] = useState(false)
+
+    const loadData = async () => {
+        const response = await axios.get(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/Films${props.match.url}.json`).then(
+            r=> r.data,
+            e=> e.name
+        )
+        setData(()=> response)
+    }
+
+    useEffect(()=>{
+        loadData()
+    },[])
+
+    if (data === null) {
+        return (
+            <section className={ classes["Film_section-container"] }>
+                <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+                <div>Данной страницы не существует</div>
+            </section>
+
+        )
+    }
+
+    if (!data) {
+        return (
+            <section className={ classes["Film_section-container"] }>
+                <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+                <div className={ classes["loader-container"]}>
+                    <Loader/>
+                </div>
+            </section>
+        )
+    }
+
 
     return (
-        <>
-            <div> Привет </div>
-        </>
+        <section className={ classes["Film_section-container"] }>
+            <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+            <FilmDescribe params={data}/>
+            <FilmComments params={ data.comments } url={props.match.url}/>
+        </section>
     )
 }
 

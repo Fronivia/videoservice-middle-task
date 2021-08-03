@@ -1,0 +1,42 @@
+.alert{
+  position: fixed;
+  left: 50%;
+  z-index: 10;
+
+  width: 300px;
+  height: 100px;
+  top: 65px;
+
+  border-radius: 8px;
+  background-color: var(--dark-red-100);
+
+  padding: 6px;
+  color: var(--white-100);
+
+  transition: 1s;
+  opacity: 1;
+}
+
+.entering{
+  animation: alert 1s;
+}
+
+.exiting{
+  animation: alert 1.6s;
+  animation-direction: reverse;
+}
+
+@keyframes alert {
+  0% {
+    top: 0;
+    opacity: .1;
+  }
+  70% {
+    top: 80px;
+    opacity: 0.8;
+  }
+  100% {
+    top: 65px;
+    opacity: 1;
+  }
+}
