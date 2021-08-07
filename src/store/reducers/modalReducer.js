@@ -12,3 +12,12 @@ export function reducer(state, action){
             return state
     }
 }
+
+export function searchReducer(state,action){
+    switch (action.type){
+        case "setQuery":
+            return action.payload
+        default:
+            return state
+    }
+}

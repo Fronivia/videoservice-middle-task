@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react'
-import {reducer} from "../reducers/modalReducer";
+import {reducer, searchReducer} from "../reducers/modalReducer";
 export const WindowContext = createContext()
 
 const initialState = {
@@ -8,7 +8,12 @@ const initialState = {
 }
 
 const WindowProvider = ({children}) => {
-    const [modalWindow, dispatch] = useReducer(reducer, initialState)
+    const [modalWindow, dispatch] = useReducer(reducer, initialState);
+    const [searchQuery, dispatchSearchQuery] = useReducer(searchReducer, "");
+
+    const setQuery = (query) => {
+        dispatchSearchQuery({type:"setQuery", payload: query})
+    }
 
     const removeModalWindow = () => {
         dispatch({type:'removeModalWindow'})
@@ -41,6 +46,8 @@ const WindowProvider = ({children}) => {
     return (
         <WindowContext.Provider
             value = {{
+                searchQuery,
+                setQuery,
                 modal: modalWindow.modal,
                 logged: modalWindow.logged,
                 logIn,

@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import MainPage from "./components/MainPage/MainPage";
 import FilmSection from "./components/FilmSection/FilmSection";
 import WindowProvider from "./store/windowContext/windowContext";
+import Search from "./components/Search/Search";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                     <Header />
                     <Switch>
                         <Route exact path="/" component={MainPage}/>
+                        <Route exact path="/search" component={Search}/>
                         <Route path="/:name" component={FilmSection}/>
                     </Switch>
                     <Footer/>

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios";
-import { Transition } from "react-transition-group";
 import classes from './UserInterface.module.scss';
 import Button from "../../../UI/Button/Button";
 import ModalWindow from "../../../ModalWindow/ModalWindow";

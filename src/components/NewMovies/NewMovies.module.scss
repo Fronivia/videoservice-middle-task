@@ -1,5 +1,5 @@
 .films-section{
-  margin-top: 9px;
+  margin: 9px 0 16px;
 
   font-style: normal;
   font-weight: 500;
@@ -21,5 +21,38 @@
 .movies-list{
   list-style: none;
   display: flex;
-  margin-top: 16px;
+  overflow: hidden;
+  transition: 1s;
+
+  li + li{
+    margin-left: 20px;
+  }
+}
+
+.list-container{
+  position: relative;
+}
+
+.arrow{
+  position: absolute;
+  height: 100%;
+  width: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  & img {
+    width: 20px;
+    height: 40px;
+  }
+}
+
+.arrow-left{
+  transform: translateX(-100%);
+}
+
+.arrow-right{
+  right: 0;
+  transform: translateX(100%) rotateY(180deg);
 }

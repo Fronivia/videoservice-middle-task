@@ -1,0 +1,33 @@
+.search-container{
+  width: 1180px;
+  margin: auto;
+  position: relative;
+}
+
+.result-container{
+
+}
+
+.result-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  li + li{
+    margin-left: 20px;
+  }
+
+  li:nth-child(4n+1){
+    margin-left: 0;
+  }
+}
+
+.loader{
+  width: 1180px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

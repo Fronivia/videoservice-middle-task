@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import { Link } from "react-router-dom";
 import axios from "axios";
 import classes from './FilmSection.module.scss'
 import FilmDescribe from "./FilmSectionParts/FilmDescribe/FilmDescribe";
@@ -8,7 +7,6 @@ import Loader from "../UI/Loader/Loader";
 
 const FilmSection = (props) => {
     const [data,setData] = useState(false)
-
     const loadData = async () => {
         const response = await axios.get(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/Films${props.match.url}.json`).then(
             r=> r.data,
@@ -24,7 +22,7 @@ const FilmSection = (props) => {
     if (data === null) {
         return (
             <section className={ classes["Film_section-container"] }>
-                <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+                <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
                 <div>Данной страницы не существует</div>
             </section>
 
@@ -34,7 +32,7 @@ const FilmSection = (props) => {
     if (!data) {
         return (
             <section className={ classes["Film_section-container"] }>
-                <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+                <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
                 <div className={ classes["loader-container"]}>
                     <Loader/>
                 </div>
@@ -45,7 +43,7 @@ const FilmSection = (props) => {
 
     return (
         <section className={ classes["Film_section-container"] }>
-            <Link to="/"><img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] }/></Link>
+           <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
             <FilmDescribe params={data}/>
             <FilmComments params={ data.comments } url={props.match.url}/>
         </section>
