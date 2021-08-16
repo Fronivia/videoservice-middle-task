@@ -40,7 +40,7 @@ const Search = () => {
 
     return (
         <section className={ classes["search-container"] }>
-            <h2>
+            <h2 className={ classes["search-title"] }>
                 Поиск
             </h2>
             <div className={ classes["result-container"] }>

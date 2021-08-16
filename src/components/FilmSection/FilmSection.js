@@ -22,8 +22,11 @@ const FilmSection = (props) => {
     if (data === null) {
         return (
             <section className={ classes["Film_section-container"] }>
-                <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
-                <div>Данной страницы не существует</div>
+                <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
+                    <img className={ classes["back_arrow-img"] } src="/assets/Films/backArrow.svg" alt="" />
+                    <span className={ classes["back-arrow_text"] }>Назад</span>
+                </button>
+                <h1 className={ classes["Film_section_alert"] }>Данной страницы пока еще не существует</h1>
             </section>
 
         )
@@ -32,7 +35,10 @@ const FilmSection = (props) => {
     if (!data) {
         return (
             <section className={ classes["Film_section-container"] }>
-                <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
+                <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
+                    <img className={ classes["back_arrow-img"] } src="/assets/Films/backArrow.svg" alt="" />
+                    <span className={ classes["back-arrow_text"] }>Назад</span>
+                </button>
                 <div className={ classes["loader-container"]}>
                     <Loader/>
                 </div>
@@ -43,7 +49,10 @@ const FilmSection = (props) => {
 
     return (
         <section className={ classes["Film_section-container"] }>
-           <img src="/assets/Films/backArrow.svg" alt="" className={ classes["back_arrow"] } onClick={()=> props.history.goBack()}/>
+            <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
+                <img className={ classes["back_arrow-img"] } src="/assets/Films/backArrow.svg" alt="" />
+                <span className={ classes["back_arrow-text"] }>Назад</span>
+            </button>
             <FilmDescribe params={data}/>
             <FilmComments params={ data.comments } url={props.match.url}/>
         </section>

@@ -4,10 +4,12 @@ import classes from './ModalWindow.module.scss'
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button/Button";
 import {WindowContext} from "../../store/windowContext/windowContext";
+import Warning from "../UI/Warning/Warning";
 
 
 const ModalWindow = () => {
 
+    const [alert, setAlert] = useState(false)
     const { removeModalWindow, logIn } = useContext(WindowContext);
     const [userInfo, setUserInfo] = useState({
         login: '',
@@ -20,9 +22,16 @@ const ModalWindow = () => {
         let data = await axios.get("https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/.json").then((result)=> result.data);
         for (let item in data) {
             if ( item === userInfo.login) {
-                String(data[item].password) === userInfo.password ? setUserData(data[item].name, userInfo.checked, item) : console.log(false)
+                String(data[item].password) === userInfo.password ? setUserData(data[item].name, userInfo.checked, item) : renderAlert();
             }
         }
+    }
+
+    const renderAlert = () => {
+        setAlert(() => true)
+        setTimeout(() => {
+            setAlert(() => false)
+        }, 3000)
     }
 
     const loginHandler = ({ target }) => {
@@ -45,7 +54,7 @@ const ModalWindow = () => {
             <form className={ classes["modal_window-container"] }>
                 <h2 className={ classes.title }>Вход</h2>
                 <Input onChange={loginHandler} name={ "login" }>Логин</Input>
-                <Input onChange={loginHandler} name={ "password" }>Пароль</Input>
+                <Input onChange={loginHandler} name={ "password" } type={"password"}>Пароль</Input>
 
                 <label className={  classes.label }>
                     <input type="checkbox" className={ classes.checkbox } onChange={ checkboxHandler }/>
@@ -55,6 +64,7 @@ const ModalWindow = () => {
 
                 <Button onClick={ authorizationHandler }>Войти</Button>
             </form>
+            <Warning toggle={alert}>Вы неверно указали пароль или имя пользователя.</Warning>
         </>
 
     )

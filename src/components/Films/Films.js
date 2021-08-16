@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import NewMovies from "../NewMovies/NewMovies";
 import Genres from "../Genres/Genres";
 

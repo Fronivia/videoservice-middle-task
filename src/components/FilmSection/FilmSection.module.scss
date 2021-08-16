@@ -1,7 +1,15 @@
+@import "src/assets/styles.constants.scss";
+
 .Film_section-container{
   width: 1180px;
   margin: auto;
   position: relative;
+}
+
+.Film_section_alert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loader-container{
@@ -15,6 +23,63 @@
   position: absolute;
   top: 12px;
   left: 0;
-  width: 10px;
+
+  background-color: white;
   height: 20px;
+  width: auto;
+  display: flex;
+  align-items: center;
+
+  border: none;
+
+  & .back_arrow-img{
+    width: 10px;
+    height: 20px;
+  }
+
+  & .back_arrow-text{
+    margin-left: 10px;
+    display: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: $red-100;
+  }
+}
+
+
+
+@media (max-width: 1280px) {
+  .Film_section-container{
+    width: auto;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 880px) {
+  .Film_section-container{
+    width: auto;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+  }
+  .back_arrow{
+    left:12px;
+  }
+}
+
+@media (max-width: 600px){
+  .back_arrow{
+    position: relative;
+    top: -10px;
+    left: 0;
+
+    & .back_arrow-text{
+      display: block;
+    }
+  }
 }

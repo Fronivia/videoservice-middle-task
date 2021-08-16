@@ -1,7 +1,9 @@
+@import "src/assets/styles.constants.scss";
+
 .movie_card-container{
   width: 280px;
   position: relative;
-  transition: 1s;
+  margin-bottom: 20px;
 
   & a{
     text-decoration: none;
@@ -26,7 +28,7 @@
 
   text-align: left;
 
-  background-color: var(--dark-grey-100);
+  background-color: $dark-grey-100;
   opacity: 0;
 
   transition: 0.5s;
@@ -36,7 +38,11 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 140%;
-  color: var(--white-grey-100);
+  color: $white-grey-100;
+
+  overflow: hidden;
+
+
 
   &:hover{
     opacity: 0.8;
@@ -52,5 +58,5 @@
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-  color: var(--dark-grey-100)
+  color: $dark-grey-100;
 }

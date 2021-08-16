@@ -1,5 +1,5 @@
-import React from 'react'
-import classes from './Genres.module.scss'
+import React from 'react';
+import classes from './Genres.module.scss';
 import GenresCard from "./GenresParts/GenresCard/GenresCard";
 
 const Genres = () => {

@@ -1,3 +1,5 @@
+@import "src/assets/styles.constants.scss";
+
 .user_interface-container{
   width: 182px;
   height: 38px;
@@ -6,16 +8,32 @@
   justify-content: flex-end;
   align-items: center;
 
-  & button{
+  .login_button{
     width: 113px;
     height: 38px;
+    margin-left: 16px;
+  }
+
+  .logout_button{
+    width: 52px;
+    height: 38px;
+    margin-left: 16px;
   }
 }
 
 .username{
+  max-width: 300px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  color: var(--dark-grey-100);
+  color: $dark-grey-100;
+}
+
+.user_input{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $dark-grey-100;
 }

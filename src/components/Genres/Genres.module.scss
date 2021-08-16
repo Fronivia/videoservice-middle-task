@@ -1,3 +1,5 @@
+@import "src/assets/styles.constants.scss";
+
 .films-section{
   margin-top: 32px;
 
@@ -7,11 +9,34 @@
   line-height: 28px;
   text-align: left;
 
-  color: var(--dark-grey-100);
+  color: $dark-grey-100;
+  align-self: flex-start;
 }
 
 .genres-list{
   list-style: none;
   display: flex;
   margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1280px){
+  .films-section{
+    align-self: auto;
+  }
+  .genres-list{
+    width: 880px;
+  }
+}
+
+@media (max-width: 980px){
+  .genres-list{
+    width: 580px;
+  }
+}
+
+@media (max-width: 680px){
+  .genres-list{
+    width: 280px;
+  }
 }

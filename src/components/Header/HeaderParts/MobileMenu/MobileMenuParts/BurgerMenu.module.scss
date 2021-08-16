@@ -1,0 +1,85 @@
+@import "src/assets/styles.constants.scss";
+
+.Burger_menu-container{
+  position: absolute;
+  top: 32px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  padding: 10px;
+  transition: 0.5s;
+  z-index: 4;
+}
+
+.Burger-menu_line{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.Burger-menu_line,
+.Burger-menu_line::before,
+.Burger-menu_line::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 3px;
+  background-color: $white-100;
+  transition: 0.3s;
+}
+
+.Burger-menu_line::before{
+  transform: translateY(-5px);
+}
+
+.Burger-menu_line::after{
+  transform: translateY(5px);
+}
+
+.rotated > .Burger-menu_line{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.rotated > .Burger-menu_line::before{
+  transform: translateY(0) rotate(45deg);
+}
+
+.rotated > .Burger-menu_line::after{
+  transform: translateY(0) rotate(-45deg);
+}
+
+.burger_menu-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .8;
+  background-color: $grey-100;
+
+  z-index: 3;
+}
+
+.menu_list{
+  width: 100%;
+  min-width: 320px;
+  transform: translateY(100%);
+
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  left: 0;
+
+  background-color: $white-100;
+  border-radius: 0 0 6px 6px;
+
+  & .menu_list_item{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+

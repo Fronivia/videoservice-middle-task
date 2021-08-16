@@ -1,11 +1,9 @@
-import React, { useRef, useEffect} from 'react'
-import classes from './TvChannels.module.scss'
+import React from 'react';
+import classes from './TvChannels.module.scss';
 import ChannelCard from "./TvChannelsParts/ChannelCard/ChannelCard";
 import Scrollbar from "../UI/Scrollbar/Scrollbar";
 
 const TvChannels = () => {
-
-    const test = useRef()
 
     const arr = [
         {title:"Первый канал", imgLocation:"/assets/TvChannels/firstChannel.svg", firstShow:"Новости (с субтитрами)", firstShowTime:"13:00", secondShow:"Давай поженимся", secondShowTime:"14:00", thirdShow:"Другие новости", thirdShowTime:"15:00"},
@@ -19,16 +17,11 @@ const TvChannels = () => {
         return arr.map((item, index) => <ChannelCard params={ item } key={item.title + index}/>)
     }
 
-    useEffect(() => {
-        console.log(test.current.offsetHeight,'1')
-        console.log(test.current.scrollHeight,'2')
-    })
-
     return (
 
             <>
-                <Scrollbar height={"696px"}>
-                    <ul className={ classes["channels-list"] } ref={ test }>
+                <Scrollbar height={"696px"} showScroller={false}>
+                    <ul className={ classes["channels-list"] }>
                         {channelCardHandler()}
                     </ul>
                 </Scrollbar>

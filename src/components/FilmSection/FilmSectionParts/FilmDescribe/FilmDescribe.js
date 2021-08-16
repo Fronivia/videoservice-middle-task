@@ -2,7 +2,6 @@ import React from 'react'
 import classes from './FilmDescribe.module.scss'
 
 const FilmDescribe = ({params}) => {
-    console.log(params)
     return (
 
         <div className={ classes["cinema_describe-container"] }>
@@ -10,16 +9,18 @@ const FilmDescribe = ({params}) => {
                 <img src={params.poster} alt=""/>
             </div>
             <div>
-                <div className={ classes["cinema_info"] }>
-                    <div className={ classes["cinema_general_data"] }>
-                        <p>Название:</p>
-                        <p>Страна:</p>
-                        <p>Жанр:</p>
-                    </div>
-                    <div className={ classes["cinema_current_data"] }>
+                <div className={ classes["cinema-info_container"] }>
+                    <div className={ classes["cinema_info"] }>
+                        <p className={ classes["cinema_general_data"] }>Название:</p>
                         <h2 className={ classes["cinema_title"] }>{params.title}</h2>
-                        <p>{params.country}</p>
-                        <p>{params.genre}</p>
+                    </div>
+                    <div className={ classes["cinema_info"] }>
+                        <p className={ classes["cinema_general_data"] } >Страна:</p>
+                        <p className={ classes["cinema_current_data"] }>{params.country}</p>
+                    </div>
+                    <div className={ classes["cinema_info"] }>
+                        <p className={ classes["cinema_general_data"] }>Жанр:</p>
+                        <p className={ classes["cinema_current_data"] }>{params.genre}</p>
                     </div>
                 </div>
                 <div className={ classes["cinema_description"] }>

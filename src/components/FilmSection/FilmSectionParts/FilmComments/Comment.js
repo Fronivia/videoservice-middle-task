@@ -16,7 +16,7 @@ const Comment = ({params, url, elem}) => {
     return (
         <>
             {deleted || <li className={ classes.comment } >
-                {verification ? <img src="/assets/Films/cross.svg" alt="" onClick={ clickHandler } className={ classes.cross }/> : false}
+                {verification ? <button className={ classes.cross } onClick={ clickHandler }><img src="/assets/Films/cross.svg" alt=""/> </button>: false}
                 <h3>{params.name}</h3>
                 <p>{params.text}</p>
             </li> }

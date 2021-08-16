@@ -35,7 +35,8 @@ const FilmComments = ({params, url}) => {
             login : (localStorage.getItem("login") ?? sessionStorage.getItem("login"))
         })
         await loadData()
-        textArea.value = ""
+        textArea.value = "";
+        textArea.rows = 2;
         event.target.disabled = false;
     }
 
@@ -83,7 +84,7 @@ const FilmComments = ({params, url}) => {
             <h2 className={ classes["comments_title"] }>Комментарии</h2>
             <div className={ classes.comments }>
                 <textarea type="text" placeholder={ "Введите комментарий..." } onChange={ resizeHandler } ref={textAreaRef} disabled={logged ? false : true}/>
-                <Button onClick={ logged ? clickHandler : renderAlert } disabled={ alert ? true : false}>Опубликовать</Button>
+                <Button onClick={ logged ? clickHandler : renderAlert } disabled={ alert ? true : false} additionalClass={ classes["publish_button"] }>Опубликовать</Button>
                 <ul className={ classes["comments_list"] }>
                     {data ? listRender(data) : listRender(params)}
                 </ul>

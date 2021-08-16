@@ -1,15 +1,14 @@
-import React from 'react'
-import classes from './Logotype.module.scss'
+import React from 'react';
+import {Link} from "react-router-dom";
+import classes from './Logotype.module.scss';
 
 const Logotype = () => {
 
     return (
-        <div className={ classes["logotype-container"] }>
-            <img src="/assets/Header/logotype.svg" alt=""/>
-            <a href="/" >
-                <h1>Видеосервис</h1>
-            </a>
-        </div>
+        <Link to={"/"} className={ classes["logotype-container"] }>
+                <img className={ classes.logotype } src="/assets/Header/logotype.svg" alt=""/>
+                <h1 className={ classes["logotype_title"] }>Видеосервис</h1>
+        </Link>
     )
 }
 

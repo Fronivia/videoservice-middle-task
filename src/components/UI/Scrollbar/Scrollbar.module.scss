@@ -1,3 +1,5 @@
+@import "src/assets/styles.constants.scss";
+
 .viewport{
   position: relative;
 }
@@ -20,8 +22,12 @@
   height: 100%;
 
   padding: 0 2px;
-  background-color: var(--white-grey-100);
+  background-color: $white-grey-100;
   border-radius: 2px;
+}
+
+.invisible-scroller{
+  background-color: rgba(242, 242, 242, 0);
 }
 
 .thumb{

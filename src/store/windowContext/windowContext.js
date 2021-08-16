@@ -16,11 +16,13 @@ const WindowProvider = ({children}) => {
     }
 
     const removeModalWindow = () => {
-        dispatch({type:'removeModalWindow'})
+        dispatch({type:'removeModalWindow'});
+        document.body.style.overflow = "auto";
     }
 
     const addModalWindow = () => {
-        dispatch({type:'addModalWindow'})
+        dispatch({type:'addModalWindow'});
+        document.body.style.overflow = "hidden";
     }
 
     const logIn = (checked, name, login) => {

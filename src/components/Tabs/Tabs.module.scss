@@ -1,3 +1,5 @@
+@import "src/assets/styles.constants.scss";
+
 .tab{
   background-color: transparent;
   border: none;
@@ -6,7 +8,7 @@
   font-size: 28px;
   line-height: 33px;
 
-  color: var(--dark-grey-100);
+  color: $dark-grey-100;
 
   & + & {
     margin-left: 24px;
@@ -14,18 +16,19 @@
 }
 
 .active-tab{
-  color: var(--red-100);
+  color: $red-100;
 }
 
 .tab-container{
   position: relative;
   margin-bottom: 32px;
   align-self: center;
+  min-width: 320px;
 }
 
 .active_line{
   position: absolute;
-  background-color: var(--red-100);
+  background-color: $red-100;
   bottom: -9px;
   height: 2px;
   transition: .5s;

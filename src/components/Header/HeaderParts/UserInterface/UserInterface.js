@@ -9,20 +9,20 @@ import Warning from "../../../UI/Warning/Warning";
 
 const UserInterface = () => {
     const { modal, addModalWindow, logged, logOut } = useContext(WindowContext);
-    const [clicked, setClicked] = useState(false)
-    const [alert, setAlert] = useState(false)
+    const [clicked, setClicked] = useState(false);
+    const [alert, setAlert] = useState(false);
 
     const clickHandler = () => {
-        setClicked(() => true)
-    }
+        setClicked(() => true);
+    };
 
     const blurHandler = async ({ target : { value }}) => {
 
         if ((value.length <= 2) || (value.length >= 26) ) {
-            setClicked(()=> false)
-            renderAlert()
-            return
-        }
+            setClicked(()=> false);
+            renderAlert();
+            return;
+        };
 
         if (sessionStorage.getItem("login")) {
             await axios.patch(`https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/${sessionStorage.getItem("login")}.json`, { name:value });
@@ -32,30 +32,30 @@ const UserInterface = () => {
             localStorage.setItem("name", value);
         }
 
-        setClicked(()=> false)
-    }
+        setClicked(()=> false);
+    };
 
     const renderAlert = () => {
-        setAlert(() => true)
+        setAlert(() => true);
         setTimeout(() => {
             setAlert(() => false)
-        }, 3000)
-    }
+        }, 3000);
+    };
 
     return (
         <>
             {logged ? (
                 <div className={ classes["user_interface-container"] }>
                     {clicked
-                        ? <input type={"text"} onBlur={ blurHandler } autoFocus defaultValue={ localStorage.name ?? sessionStorage.name }/>
+                        ? <input className={ classes["user_input"] } type={"text"} onBlur={ blurHandler } autoFocus defaultValue={ localStorage.name ?? sessionStorage.name }/>
                         : <p className={ classes.username } onClick={ clickHandler }>{localStorage.name ?? sessionStorage.name}</p>}
-                    <Button onClick={ logOut } transparent={ true }>Выйти</Button>
+                    <Button onClick={ logOut } transparent={ true } additionalClass={classes["logout_button"]}>Выйти</Button>
                     <Warning toggle={alert}>Пожалуйста, введите корректное имя пользователя. Оно должно содержать от 2 до 26 символов</Warning>
                 </div>
             ) : (
                 <div className={ classes["user_interface-container"] }>
                     <p></p>
-                    <Button onClick={ addModalWindow } transparent={ false }>Войти</Button>
+                    <Button onClick={ addModalWindow } transparent={ false } additionalClass={classes["login_button"]}>Войти</Button>
                 </div>
             )}
             {modal && ReactDOM.createPortal(

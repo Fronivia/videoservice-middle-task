@@ -1,8 +1,20 @@
+@import "src/assets/styles.constants.scss";
+
 .header{
-  width: 1180px;
-  height: 40px;
-  margin: 32px auto 44px;
+  max-width: 1180px;
+  height: 72px;
+  margin: 0 auto 44px;
+  padding-top: 32px;
 
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 5;
+  background-color: $white-100;
+}
+
+.mobile{
+  max-width: 100%;
+  justify-content: center;
+  min-width: 320px;
 }

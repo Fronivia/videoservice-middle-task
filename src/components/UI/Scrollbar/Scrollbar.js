@@ -1,7 +1,10 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import classes from './Scrollbar.module.scss'
+import clsx from "clsx";
 
 const Scrollbar = (props) => {
+
+    const [renderScroll, setRenderScroll] = useState(true)
 
     const contentRef = useRef();
     const scrollerRef = useRef();
@@ -42,7 +45,7 @@ const Scrollbar = (props) => {
     });
 
     const wheelHandler = (event) => {
-
+        console.log("123")
         event.preventDefault();
 
         let { content, contentMaxScroll, contentScrolledLength, step, thumb, ratio, scrollbarMaxScroll} = createPositions();
@@ -125,21 +128,40 @@ const Scrollbar = (props) => {
         }
     };
 
+    const scrollbarCheckUp = () => {
+        (contentRef.current?.offsetHeight < childrenWrapperRef.current?.offsetHeight)
+            ? setRenderScroll(() => true)
+            : setRenderScroll(() => false)
+    }
+
     useEffect(() => {
-        contentRef.current.addEventListener('wheel', wheelHandler);
-    });
+        if (renderScroll) contentRef.current.addEventListener('wheel', wheelHandler);
+        scrollbarCheckUp()
+        return () => {
+                contentRef.current?.removeEventListener('wheel', wheelHandler)
+        }
+    },[renderScroll]);
+
+
+    if ( renderScroll) {
+        return (
+            <div className={ classes.viewport }>
+                <div className={ classes.content } ref={ contentRef } style={{height:props.height}}>
+                    <div className={ classes["children-wrapper"] } ref={ childrenWrapperRef }>
+                        {props.children}
+                    </div>
+                </div>
+                    <div className={ clsx(classes.scroller, props.showScroller && classes["invisible-scroller"]) } ref={ scrollerRef } onClick={ scrollerClickHandler }>
+                        <div className={ classes.thumb } ref={ thumbRef } onMouseDown={ mouseDownHandler }></div>
+                    </div>
+            </div>
+        )
+    }
 
     return (
-        <div className={ classes.viewport }>
-            <div className={ classes.content } ref={ contentRef } style={{height:props.height}}>
-                <div className={ classes["children-wrapper"] } ref={ childrenWrapperRef }>
-                    {props.children}
-                </div>
-            </div>
-            <div className={ classes.scroller } ref={ scrollerRef } onClick={ scrollerClickHandler }>
-                <div className={ classes.thumb } ref={ thumbRef } onMouseDown={ mouseDownHandler }></div>
-            </div>
-        </div>
+        <>
+            {props.children}
+        </>
     )
 }
 

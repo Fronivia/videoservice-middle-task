@@ -1,17 +1,20 @@
+@import "src/assets/styles.constants.scss";
+
 .alert{
   position: fixed;
   left: 50%;
   z-index: 10;
+  transform: translateX(-50%);
 
   width: 300px;
   height: 100px;
   top: 65px;
 
   border-radius: 8px;
-  background-color: var(--dark-red-100);
+  background-color: $dark-red-100;
 
   padding: 6px;
-  color: var(--white-100);
+  color: $white-100;
 
   transition: 1s;
   opacity: 1;

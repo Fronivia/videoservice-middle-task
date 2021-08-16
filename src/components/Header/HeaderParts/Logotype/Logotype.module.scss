@@ -1,21 +1,23 @@
+@import "src/assets/styles.constants.scss";
+
 .logotype-container{
   display: flex;
   align-items: center;
 
-  & img{
+  & .logotype{
     width: 36px;
     height: 36px;
   }
 
-  & a{
+  & .logotype_title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: $dark-grey-100;
+
     text-decoration: none;
     margin-left: 11px;
-    & h1{
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      color: var(--dark-grey-100);
-    }
+
   }
 }

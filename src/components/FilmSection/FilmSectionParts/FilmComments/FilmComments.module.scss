@@ -1,3 +1,5 @@
+@import "src/assets/styles.constants.scss";
+
 .comments-container{
   margin-top: 48px;
 
@@ -14,7 +16,7 @@
   font-size: 20px;
   line-height: 24px;
 
-  color: var(--dark-grey-100);
+  color: $dark-grey-100;
 }
 
 .comments{
@@ -22,7 +24,7 @@
   position: relative;
 
   & textarea{
-    width: 780px;
+    width: 100%;
     min-height: 110px;
     background-color: rgba(229, 38, 30, 0.15);
     border: none;
@@ -36,16 +38,16 @@
     font-size: 16px;
     line-height: 19px;
 
-    color: var(--dark-grey-100);
+    color: $dark-grey-100;
 
 
     &::placeholder{
-      color: var(--red-100);
+      color: $red-100;
     }
   }
 
-  button{
-    width: 178px;
+  .publish_button{
+    width: 174px;
     height: 38px;
 
     position: absolute;
@@ -60,3 +62,25 @@
   list-style: none;
 }
 
+@media (max-width: 1280px) {
+  .comments{
+    width: 580px;
+
+    .publish_button{
+      position: relative;
+      right: 0;
+      top: 10px;
+      width: 100%;
+      transform: none;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+
+
+@media (max-width: 600px){
+  .comments{
+    width: 300px;
+  }
+}

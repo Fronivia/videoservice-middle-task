@@ -6,7 +6,9 @@ import classes from './Tabs.module.scss'
 const Tabs = ({params}) => {
 
     const [activeTab, setActiveTab] = useState(params[0]);
-    const activeLineRef = useRef()
+
+    const activeLineRef = useRef();
+
     const tabsRender = () => {
         return params.map(item => {
             return(

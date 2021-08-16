@@ -1,10 +1,12 @@
+@import "src/assets/styles.constants.scss";
+
 .channel-card{
   display: flex;
 
   width: 1180px;
   height: 162px;
 
-  background-color: var(--white-grey-100);
+  background-color: $white-grey-100;
   border-radius: 8px;
 
   & + & {
@@ -35,7 +37,7 @@
   font-size: 20px;
   line-height: 24px;
 
-  color: var(--dark-grey-100);
+  color: $dark-grey-100;
 
   margin-bottom: 17px;
 }
@@ -51,14 +53,57 @@
     font-size: 16px;
     line-height: 19px;
     text-align: left;
-    color: var(--dark-grey-100);
+    color: $dark-grey-100;
   }
 
   & li:first-child{
-    color: var(--red-100);
+    color: $red-100;
+  }
+
+  & li:last-child{
+    margin-bottom: 0;
   }
 }
 
 .show-time{
   margin-right: 16px;
+}
+
+@media (max-width: 1280px){
+  .channel-card{
+    width: 880px;
+  }
+  .channel_logotype-container{
+    width: 150px;
+  }
+}
+
+@media (max-width: 1280px){
+  .channel-card{
+    width: 880px;
+  }
+  .channel_logotype-container{
+    width: 150px;
+  }
+}
+
+@media (max-width: 980px){
+  .channel-card{
+    width: 680px;
+  }
+  .channel_logotype-container{
+    display: none;
+  }
+}
+
+@media (max-width: 780px){
+  .channel-card{
+    width: 480px;
+  }
+}
+
+@media (max-width: 580px){
+  .channel-card{
+    width: 300px;
+  }
 }

@@ -15,3 +15,11 @@
   }
 
 }
+
+@media (max-width: 450px){
+  .mobile{
+    & input{
+      width: 200px;
+    }
+  }
+}
