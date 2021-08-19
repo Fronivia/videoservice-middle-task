@@ -21,20 +21,25 @@
   width: 8px;
   height: 100%;
 
-  padding: 0 2px;
+  padding: 2px;
   background-color: $white-grey-100;
   border-radius: 2px;
 }
 
 .invisible-scroller{
   background-color: rgba(242, 242, 242, 0);
+  padding: 0 2px;
 }
 
 .thumb{
-  position: absolute;
+  position: relative;
   top: 0;
   width: 4px;
-  height: 100px;
+  height: 500px;
   background: #BDBDBD;
   border-radius: 2px;
+}
+
+.film_thumb{
+  height: 100px;
 }

@@ -1,6 +1,6 @@
 @import "src/assets/styles.constants.scss";
 
-.user_interface-container{
+.user_interface_container{
   width: 182px;
   height: 38px;
 
@@ -8,13 +8,18 @@
   justify-content: flex-end;
   align-items: center;
 
-  .login_button{
+  & .login_button{
     width: 113px;
     height: 38px;
     margin-left: 16px;
   }
 
-  .logout_button{
+  & .mobile_login_button{
+    width: 113px;
+    height: 38px;
+  }
+
+  & .logout_button{
     width: 52px;
     height: 38px;
     margin-left: 16px;
@@ -31,9 +36,14 @@
 }
 
 .user_input{
+  text-align: right;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: $dark-grey-100;
+}
+
+.mobile{
+  width: auto;
 }

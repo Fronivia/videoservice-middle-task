@@ -1,6 +1,5 @@
-import React from "react"
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import classes from './App.module.scss';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainPage from "./components/MainPage/MainPage";
@@ -13,7 +12,6 @@ function App() {
     return (
         <BrowserRouter>
             <WindowProvider>
-                <div className={ classes.App }>
                     <Header />
                     <Switch>
                         <Route exact path="/" component={MainPage}/>
@@ -21,7 +19,6 @@ function App() {
                         <Route path="/:name" component={FilmSection}/>
                     </Switch>
                     <Footer/>
-                </div>
             </WindowProvider>
         </BrowserRouter>
 

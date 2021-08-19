@@ -1,24 +1,22 @@
-@import "src/assets/styles.constants.scss";
+@import "../../../assets/styles.constants";
 
-.movie_card-container{
+.movie_card_container{
   width: 280px;
   position: relative;
-  margin-bottom: 20px;
 
   & a{
     text-decoration: none;
   }
 }
 
-.card-img{
+.card_img{
   width: 280px;
   height: 370px;
   display: block;
   border-radius: 8px;
 }
 
-.card-description{
-
+.card_description{
   width: 280px;
   height: 370px;
   padding: 16px;
@@ -26,37 +24,33 @@
   position: absolute;
   top: 0;
 
-  text-align: left;
-
   background-color: $dark-grey-100;
   opacity: 0;
 
-  transition: 0.5s;
+  transition: 0.3s;
   border-radius: 8px;
 
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 140%;
+  text-align: left;
   color: $white-grey-100;
 
   overflow: hidden;
 
-
-
   &:hover{
-    opacity: 0.8;
+    background-color: $dark-grey-80;
+    opacity: 1;
   }
 }
 
-.card-title{
+.card_title{
   margin-top: 16px;
-
-  text-align: left;
-
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
+  text-align: left;
   color: $dark-grey-100;
 }

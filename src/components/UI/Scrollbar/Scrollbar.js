@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
-import classes from './Scrollbar.module.scss'
+import React, { useState, useRef, useEffect } from 'react';
+import classes from './Scrollbar.module.scss';
 import clsx from "clsx";
 
 const Scrollbar = (props) => {
 
-    const [renderScroll, setRenderScroll] = useState(true)
+    //состояние по которому смотрим нужно ли рендерить скролбар или нет
+    const [renderScroll, setRenderScroll] = useState(true);
 
     const contentRef = useRef();
     const scrollerRef = useRef();
@@ -12,7 +13,7 @@ const Scrollbar = (props) => {
     const childrenWrapperRef = useRef();
     let startMousePosition;
 
-
+    //функция. при вызове которой получаем информацию об элементах
     const createPositions = () => ({
         content : contentRef.current,
         scroller : scrollerRef.current,
@@ -30,8 +31,15 @@ const Scrollbar = (props) => {
         get contentMaxScroll(){
             return this.contentScrollHeight - this.contentHeight;
         },
+        // на случай если будут отступы
+        get scrollerPaddingTop(){
+            return parseInt(window.getComputedStyle(this.scroller).getPropertyValue("padding-top"));
+        },
+        get scrollerPaddingBottom(){
+            return parseInt(window.getComputedStyle(this.scroller).getPropertyValue("padding-bottom"));
+        },
         get scrollerHeight(){
-            return this.scroller.offsetHeight;
+            return this.scroller.offsetHeight - this.scrollerPaddingTop - this.scrollerPaddingTop;
         },
         get thumbHeight(){
             return this.thumb.offsetHeight;
@@ -44,12 +52,11 @@ const Scrollbar = (props) => {
         }
     });
 
+    // обработчик колесика мышки
     const wheelHandler = (event) => {
-        console.log("123")
         event.preventDefault();
 
         let { content, contentMaxScroll, contentScrolledLength, step, thumb, ratio, scrollbarMaxScroll} = createPositions();
-
         if (event.deltaY < 0) { // вверх
             if (contentScrolledLength - step < 0 ){
                 content.scrollTop = 0;
@@ -58,7 +65,6 @@ const Scrollbar = (props) => {
                 content.scrollBy(0, -step);
                 thumb.style.top = `${(contentScrolledLength - step)/ratio}px`;
             }
-
         } else {
             if (contentScrolledLength + step > contentMaxScroll ) {
                 content.scrollTop = contentMaxScroll;
@@ -70,6 +76,7 @@ const Scrollbar = (props) => {
         }
     };
 
+    //обработчик клика мышки по ползунку
     const mouseDownHandler = (event) => {
         const { thumb } = createPositions();
         startMousePosition = event.pageY;
@@ -80,6 +87,7 @@ const Scrollbar = (props) => {
         window.addEventListener('mouseup', mouseUpHandler);
     };
 
+    //обработчик движения мышки при зажатом клике на ползунке
     const mouseMoveHandler = (event) => {
         const { content, thumb, scrollbarMaxScroll, contentMaxScroll, ratio, contentScrolledLength } = createPositions();
         const { clientY: mousePositionY } = event;
@@ -93,21 +101,19 @@ const Scrollbar = (props) => {
             content.scrollTop = contentMaxScroll;
         } else {
             thumb.style.top = `${thumbPosition}px`;
-            content.scrollBy(0, thumbPosition * ratio - contentScrolledLength  );
+            content.scrollBy(0, thumbPosition * ratio - contentScrolledLength);
         }
     };
 
+    //обработчик события, когда пользователь отпускает ползунок
     const mouseUpHandler = () => {
         document.body.style.userSelect = "text";
         window.removeEventListener('mousemove', mouseMoveHandler);
         window.removeEventListener('mouseup', mouseUpHandler);
     };
 
-    const getCoords = (elem) => {
-        let { top } = elem.getBoundingClientRect();
-        return top - window.pageYOffset;
-    };
-
+    //обработчик события, когда пользователь кликает по скроллеру.
+    //Ползунок центрируется по месту, куда кликнул пользователь или на максимально допустимое расстояние
     const scrollerClickHandler = (event) => {
         const { content, contentMaxScroll, thumb, thumbHeight, scrollbarMaxScroll, ratio } = createPositions();
 
@@ -128,12 +134,20 @@ const Scrollbar = (props) => {
         }
     };
 
+    //функция для подсчета куда должен переместится ползунок при клике по скроллеру
+    const getCoords = (elem) => {
+        let { top } = elem.getBoundingClientRect();
+        return top - window.pageYOffset;
+    };
+
+    //функция, которая проверят необходимость в рендере скроллбара
     const scrollbarCheckUp = () => {
         (contentRef.current?.offsetHeight < childrenWrapperRef.current?.offsetHeight)
             ? setRenderScroll(() => true)
             : setRenderScroll(() => false)
     }
 
+    //при первом рендере проверяем надо ли рендерить скроллбар и вешаем/удаляем обработчики событий
     useEffect(() => {
         if (renderScroll) contentRef.current.addEventListener('wheel', wheelHandler);
         scrollbarCheckUp()
@@ -151,8 +165,16 @@ const Scrollbar = (props) => {
                         {props.children}
                     </div>
                 </div>
-                    <div className={ clsx(classes.scroller, props.showScroller && classes["invisible-scroller"]) } ref={ scrollerRef } onClick={ scrollerClickHandler }>
-                        <div className={ classes.thumb } ref={ thumbRef } onMouseDown={ mouseDownHandler }></div>
+                    <div
+                        className={ clsx(classes.scroller, props.showScroller && classes["invisible-scroller"]) }
+                        ref={ scrollerRef }
+                        onClick={ scrollerClickHandler }
+                    >
+                        <div
+                            className={ clsx(classes.thumb, props.showScroller && classes["film_thumb"]) }
+                            ref={ thumbRef }
+                            onMouseDown={ mouseDownHandler }
+                        />
                     </div>
             </div>
         )

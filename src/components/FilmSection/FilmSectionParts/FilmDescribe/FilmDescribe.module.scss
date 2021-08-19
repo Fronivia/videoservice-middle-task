@@ -7,6 +7,15 @@
 
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: 1280px){
+    width: 584px;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 }
 
 .cinema_poster{
@@ -16,6 +25,11 @@
   display: flex;
   justify-content: flex-start;
 
+  @media (max-width: 1280px){
+    width: auto;
+    margin-bottom: 20px;
+  }
+
   & img{
     width: 280px;
     height: 370px;
@@ -23,7 +37,7 @@
   }
 }
 
-.cinema-info_container{
+.cinema_info_container{
   display: flex;
   flex-direction: column;
 
@@ -51,12 +65,20 @@
   text-align: left;
 
   color: $dark-grey-100;
+
+  @media (max-width: 1280px){
+    width: 100%;
+  }
 }
 
 .cinema_info{
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 }
 
 .cinema_general_data{
@@ -66,6 +88,10 @@
   font-size: 16px;
   line-height: 19px;
   color: $dark-grey-100;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .cinema_current_data{
@@ -76,30 +102,3 @@
 
   color: $dark-grey-100;
 }
-
-@media (max-width: 1280px){
-  .cinema_describe-container{
-    width: 584px;
-    justify-content: center;
-  }
-  .cinema_poster{
-    width: 280px;
-    margin-bottom: 20px;
-  }
-  .cinema_description{
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .cinema_describe-container{
-    width: 300px;
-  }
-  .cinema_info{
-    width: 300px;
-  }
-  .cinema_general_data{
-    width: 100%;
-  }
-}
-

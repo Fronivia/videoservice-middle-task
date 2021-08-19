@@ -11,7 +11,7 @@ const MainPage = () => {
     ]
 
     return (
-        <main className={ classes["main-page"] }>
+        <main className={ classes["main_page"] }>
             <Tabs params={arr}/>
         </main>
     )

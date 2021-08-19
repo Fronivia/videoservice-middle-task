@@ -12,6 +12,23 @@
   & + & {
     margin-top: 16px;
   }
+
+  @media (max-width: 1280px){
+    width: 880px;
+    padding-left: 4px;
+  }
+
+  @media (max-width: 980px){
+    width: 680px;
+  }
+
+  @media (max-width: 780px){
+    width: 480px;
+  }
+
+  @media (max-width: 580px) {
+    width: 280px;
+  }
 }
 
 .channel_logotype-container{
@@ -21,6 +38,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1280px){
+    width: 150px;
+  }
+
+  @media (max-width: 980px){
+    display: none;
+  }
 }
 
 .channel-schedule{
@@ -40,6 +65,12 @@
   color: $dark-grey-100;
 
   margin-bottom: 17px;
+
+  @media (max-width: 580px){
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 23px;
+  }
 }
 
 .channel-list{
@@ -54,6 +85,11 @@
     line-height: 19px;
     text-align: left;
     color: $dark-grey-100;
+
+    @media (max-width: 580px){
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
 
   & li:first-child{
@@ -67,43 +103,4 @@
 
 .show-time{
   margin-right: 16px;
-}
-
-@media (max-width: 1280px){
-  .channel-card{
-    width: 880px;
-  }
-  .channel_logotype-container{
-    width: 150px;
-  }
-}
-
-@media (max-width: 1280px){
-  .channel-card{
-    width: 880px;
-  }
-  .channel_logotype-container{
-    width: 150px;
-  }
-}
-
-@media (max-width: 980px){
-  .channel-card{
-    width: 680px;
-  }
-  .channel_logotype-container{
-    display: none;
-  }
-}
-
-@media (max-width: 780px){
-  .channel-card{
-    width: 480px;
-  }
-}
-
-@media (max-width: 580px){
-  .channel-card{
-    width: 300px;
-  }
 }

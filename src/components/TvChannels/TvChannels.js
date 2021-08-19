@@ -11,14 +11,14 @@ const TvChannels = () => {
         {title:"РБК", imgLocation:"/assets/TvChannels/rbc.svg", firstShow:"ДЕНЬ. Горючая смесь: как бороться с суррогатом на АЗС", firstShowTime:"13:00", secondShow:"ДЕНЬ. Главные темы", secondShowTime:"14:00", thirdShow:"Главные новости", thirdShowTime:"15:00"},
         {title:"AMEDIA PREMIUM", imgLocation:"/assets/TvChannels/amedia.svg", firstShow:"Клиент всегда мёртв", firstShowTime:"13:00", secondShow:"Голодные игры: Сойка-пересмешница. Часть I", secondShowTime:"14:00", thirdShow:"Секс в большом городе", thirdShowTime:"15:00"},
         {title:"AMEDIA PREMIUM", imgLocation:"/assets/TvChannels/amedia.svg", firstShow:"Клиент всегда мёртв", firstShowTime:"13:00", secondShow:"Голодные игры: Сойка-пересмешница. Часть I", secondShowTime:"14:00", thirdShow:"Секс в большом городе", thirdShowTime:"15:00"},
-    ]
+    ];
 
+    //рендерим карточки телеканалов
     const channelCardHandler = () => {
         return arr.map((item, index) => <ChannelCard params={ item } key={item.title + index}/>)
-    }
+    };
 
     return (
-
             <>
                 <Scrollbar height={"696px"} showScroller={false}>
                     <ul className={ classes["channels-list"] }>
@@ -27,6 +27,6 @@ const TvChannels = () => {
                 </Scrollbar>
             </>
     )
-}
+};
 
 export default TvChannels;

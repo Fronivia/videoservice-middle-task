@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from "clsx";
-import classes from './Tabs.module.scss'
+import classes from './Tabs.module.scss';
 
 
 const Tabs = ({params}) => {
-
+    //состояние активного таба
     const [activeTab, setActiveTab] = useState(params[0]);
 
     const activeLineRef = useRef();
 
+    //рендерим табы
     const tabsRender = () => {
         return params.map(item => {
             return(
@@ -20,14 +21,15 @@ const Tabs = ({params}) => {
                 >
                     {item.tabName}
                 </button>
-            )
-        })
-    }
+            );
+        });
+    };
 
     useEffect(() => {
         let activeButton = activeTab.ref.current;
         let activeLine = activeLineRef.current;
-        // Добавляем плавную анимацию для подчеркивания, но к сожалению, при первом рендере не учитывает шрифт font-face, поэтому стоит заглушка
+        // Добавляем плавную анимацию для подчеркивания
+        // при первом рендере не учитывает шрифт font-face, поэтому стоит заглушка
         if (!activeLine.style.width) {
             activeLine.style.left = `${activeButton.offsetLeft}px`;
             activeLine.style.width = `${116}px`;
@@ -39,14 +41,13 @@ const Tabs = ({params}) => {
 
     return (
         <>
-            <div className={ classes["tab-container"] }>
+            <div className={ classes["tab_container"] }>
                 {tabsRender()}
                 <div className={ classes["active_line"] } ref={activeLineRef}></div>
             </div>
-
             <activeTab.activeComponent/>
         </>
-    )
-}
+    );
+};
 
 export default Tabs;

@@ -1,6 +1,6 @@
 @import "src/assets/styles.constants.scss";
 
-.Burger_menu-container{
+.Burger_menu_container{
   position: absolute;
   top: 32px;
   left: 5px;
@@ -11,16 +11,18 @@
   padding: 10px;
   transition: 0.5s;
   z-index: 4;
+
+  cursor: pointer;
 }
 
-.Burger-menu_line{
+.Burger_menu_line{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.Burger-menu_line,
-.Burger-menu_line::before,
-.Burger-menu_line::after {
+.Burger_menu_line,
+.Burger_menu_line::before,
+.Burger_menu_line::after {
   position: absolute;
   content: "";
   width: 20px;
@@ -29,27 +31,27 @@
   transition: 0.3s;
 }
 
-.Burger-menu_line::before{
+.Burger_menu_line::before{
   transform: translateY(-5px);
 }
 
-.Burger-menu_line::after{
+.Burger_menu_line::after{
   transform: translateY(5px);
 }
 
-.rotated > .Burger-menu_line{
+.rotated > .Burger_menu_line{
   background-color: rgba(0, 0, 0, 0);
 }
 
-.rotated > .Burger-menu_line::before{
+.rotated > .Burger_menu_line::before{
   transform: translateY(0) rotate(45deg);
 }
 
-.rotated > .Burger-menu_line::after{
+.rotated > .Burger_menu_line::after{
   transform: translateY(0) rotate(-45deg);
 }
 
-.burger_menu-background{
+.burger_menu_background{
   position: fixed;
   top: 0;
   left: 0;

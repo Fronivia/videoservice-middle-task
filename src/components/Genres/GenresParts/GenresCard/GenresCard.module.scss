@@ -1,6 +1,6 @@
 @import "src/assets/styles.constants.scss";
 
-.genres_card-container{
+.genres_card_container{
   width: 280px;
   height: 208px;
 
@@ -11,6 +11,34 @@
 
   & + &{
     margin-left: 20px;
+  }
+
+  @media (max-width: 1280px) {
+    margin-bottom: 20px;
+  }
+
+  &:nth-child(3n+4){
+    @media (max-width: 1280px) and (min-width: 981px){
+      margin-left: 0;
+    }
+  }
+
+  &:nth-child(2n+1){
+    @media (max-width: 980px) and (min-width: 681px){
+      margin-left: 0;
+    }
+  }
+
+  & + &{
+    @media (max-width: 680px){
+      margin-left: 0;
+    }
+  }
+
+  &:nth-child(2n){
+    @media (max-width: 680px) {
+      margin-right: 0;
+    }
   }
 
   .genres_card{
@@ -26,14 +54,14 @@
 
     border-radius: 6px;
 
-    & .genres_card-img{
+    & .genres_card_img{
       width: 48px;
       height: 48px;
 
       margin: 80px 0 32px;
     }
 
-    & .genres_card-title{
+    & .genres_card_title{
       font-style: normal;
       font-weight: normal;
       font-size: 20px;
@@ -43,7 +71,7 @@
   }
 }
 
-.genres_card-background{
+.genres_card_background{
   width: 280px;
   height: 208px;
 
@@ -56,8 +84,8 @@
   transition: 0.5s;
 }
 
-.genres_card-link{
-  &:hover > .genres_card-background{
+.genres_card_link{
+  &:hover > .genres_card_background{
     opacity: 1;
   }
 }
@@ -80,32 +108,4 @@
 .horror{
   background: linear-gradient(127.83deg, #828282 8.44%, #333333 91.36%);
   box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
-}
-
-
-@media (max-width: 1280px) {
-  .genres_card-container{
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 1280px) and (min-width: 981px){
-  .genres_card-container:nth-child(3n+4){
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 980px) and (min-width: 681px){
-  .genres_card-container:nth-child(2n+1){
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 680px){
-  .genres_card-container + .genres_card-container{
-    margin-left: 0;
-  }
-  .genres_card-container:nth-child(2n){
-    margin-right: 0;
-  }
 }

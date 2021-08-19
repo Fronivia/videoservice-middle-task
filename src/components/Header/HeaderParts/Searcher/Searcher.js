@@ -13,17 +13,17 @@ const Searcher = ({Mobile}) => {
     const inputRef = useRef();
 
     const clickHandler = () => {
-        setQuery(inputRef.current.value)
-    }
+        setQuery(inputRef.current.value);
+    };
 
     return (
-        <div className={ clsx(classes['searcher-container'], Mobile && classes.mobile) }>
-            <form>
+        <form className={ clsx(classes['searcher_container'], Mobile && classes.mobile) }>
                 <Input Ref={inputRef} >Поиск...</Input>
-                <Link to={"/search"}><Button transparent={ true } onClick={ clickHandler }>Найти</Button></Link>
-            </form>
-        </div>
+                <Link to={"/search"}>
+                    <Button transparent={ true } onClick={ clickHandler }>Найти</Button>
+                </Link>
+        </form>
     )
-}
+};
 
 export default Searcher;

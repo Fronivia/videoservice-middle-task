@@ -11,18 +11,19 @@ const Genres = () => {
         {genre:"Ужасы", imgLocation:"/assets/Genres/horrorSmile.svg", class:"horror"},
     ]
 
+    //функция, которая рендерит карточки жанров
     const genresCardHandler = () => {
         return arr.map(item => <GenresCard params={ item } key={item.genre}/>)
     }
 
     return (
         <>
-            <h2 className={ classes["films-section"] }>Жанры</h2>
-            <ul className={ classes["genres-list"] }>
+            <h2 className={ classes["films_section"] }>Жанры</h2>
+            <ul className={ classes["genres_list"] }>
                 { genresCardHandler() }
             </ul>
         </>
     )
-}
+};
 
 export default Genres;
