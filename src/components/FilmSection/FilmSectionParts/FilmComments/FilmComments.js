@@ -56,7 +56,6 @@ const FilmComments = ({params, url}) => {
         //убираем строку.
         // Если не появляется скроллинг, то повторяем пока не появится или не достигнем минимальной высоты
         target.rows -=1;
-        console.log(target.scrollHeight);
         if (target.scrollHeight <= 110){ return }
         if (target.scrollHeight > target.offsetHeight){
             target.rows +=1;
