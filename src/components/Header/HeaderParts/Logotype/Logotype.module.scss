@@ -2,7 +2,8 @@
 
 .logotype_container{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  height: 40px;
 
   & .logotype{
     width: 36px;
@@ -10,6 +11,10 @@
   }
 
   & .logotype_title{
+    display: flex;
+    align-items: center;
+    height: 36px;
+
     font-style: normal;
     font-weight: 500;
     font-size: 20px;

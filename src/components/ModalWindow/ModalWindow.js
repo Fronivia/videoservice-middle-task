@@ -19,17 +19,21 @@ const ModalWindow = () => {
 
     //Проверка введеного пароля и логина
     const authorizationHandler = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        let successfully = false;
         let data = await axios.get(
             "https://testovoe-htc-middle-default-rtdb.firebaseio.com/users/.json"
         ).then((result)=> result.data);
         for (let item in data) {
             if ( item === userInfo.login) {
-                String(data[item].password) === userInfo.password
-                    ? setUserData(data[item].name, userInfo.checked, item)
-                    : renderAlert();
+                if (String(data[item].password) === userInfo.password) {
+                    setUserData(data[item].name, userInfo.checked, item);
+                    successfully = true
+                }
             }
         };
+
+        !successfully && renderAlert()
     };
 
     //Оповещение о неверно введеном пароле
