@@ -4,7 +4,7 @@ import classes from './FilmDescribe.module.scss';
 const FilmDescribe = ({params}) => (
     <div className={ classes["cinema_describe-container"] }>
         <div className={ classes["cinema_poster"] }>
-            <img src={params.poster} alt=""/>
+            <img src={params.poster} alt="poster"/>
         </div>
         <div>
             <div className={ classes["cinema_info_container"] }>

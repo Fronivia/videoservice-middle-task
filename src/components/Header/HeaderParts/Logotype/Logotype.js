@@ -4,7 +4,7 @@ import classes from './Logotype.module.scss';
 
 const Logotype = () => (
     <Link to={"/"} className={ classes["logotype_container"] }>
-            <img className={ classes.logotype } src="/assets/Header/logotype.svg" alt=""/>
+            <img className={ classes.logotype } src="/assets/Header/logotype.svg" alt="video service logotype"/>
             <h1 className={ classes["logotype_title"] }>Видеосервис</h1>
     </Link>
 );

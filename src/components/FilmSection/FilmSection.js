@@ -26,7 +26,7 @@ const FilmSection = (props) => {
         return (
             <section className={ classes["Film_section_container"] }>
                 <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
-                    <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="" />
+                    <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="back arrow" />
                     <span className={ classes["back_arrow_text"] }>Назад</span>
                 </button>
                 <div className={ classes["Film_section_container"] }><h2 className={ classes["Film_section_alert"] }>
@@ -42,7 +42,7 @@ const FilmSection = (props) => {
         return (
             <section className={ classes["Film_section_container"] }>
                 <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
-                    <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="" />
+                    <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="back arrow" />
                     <span className={ classes["back_arrow_text"] }>Назад</span>
                 </button>
                 <div className={ classes["loader_container"]}>
@@ -55,7 +55,7 @@ const FilmSection = (props) => {
     return (
         <section className={ classes["Film_section_container"] }>
             <button onClick={()=> props.history.goBack()} className={ classes["back_arrow"] }>
-                <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="" />
+                <img className={ classes["back_arrow_img"] } src="/assets/Films/backArrow.svg" alt="back arrow" />
                 <span className={ classes["back_arrow_text"] }>Назад</span>
             </button>
             <FilmDescribe params={data}/>

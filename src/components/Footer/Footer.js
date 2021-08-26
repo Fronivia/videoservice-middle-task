@@ -5,7 +5,7 @@ const Footer = () => (
     <footer className={ classes["footer_container"]}>
         <div className={ classes.footer }>
             <div className={ classes["footer_logotype"] }>
-                <img className={ classes["footer_logotype_img"] } src="/assets/Footer/htc-logo.svg" alt=""/>
+                <img className={ classes["footer_logotype_img"] } src="/assets/Footer/htc-logo.svg" alt="htc logotype"/>
             </div>
             <address className={ classes["footer_info"] }>
                 <p>

@@ -122,13 +122,13 @@ const NewMovies = () => {
                     name="left"
                     onClick={  clickHandler }
                 >
-                    <img className={ classes["arrow_img"] } src="/assets/Films/backArrow.svg" alt=""/>
+                    <img className={ classes["arrow_img"] } src="/assets/Films/backArrow.svg" alt="arrow left"/>
                 </div>
                 <div className={ clsx(classes["arrow_right"], classes.arrow) }
                      name="right"
                      onClick={  clickHandler }
                 >
-                    <img className={ classes["arrow_img"] } src="/assets/Films/backArrow.svg" alt="" />
+                    <img className={ classes["arrow_img"] } src="/assets/Films/backArrow.svg" alt="arrow right" />
                 </div>
                 <div className={ classes["movies_list_container"] } ref={listContainerRef}>
                     <ul className={ classes["movies_list"] } ref={ ulRef }>

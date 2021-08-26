@@ -13,7 +13,7 @@ const MovieCard = ({params, condition}) => {
     return (
         <li className={ clsx(classes["movie_card_container"]) }>
             <Link to={`/${params.link}`}>
-                <img src={ params.img } className={ classes["card_img"] } alt=""/>
+                <img src={ params.img } className={ classes["card_img"] } alt="poster"/>
                 <div className={ classes["card_description"] } >
                     <Scrollbar height={"338px"} showScroller={true}>
                         <p>{params.description}</p>
